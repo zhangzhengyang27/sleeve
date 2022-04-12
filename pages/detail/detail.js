@@ -14,6 +14,7 @@ Page({
     },
 
     onLoad: async function (options) {
+        //获取跳转传过来的pid
         const pid = options.pid
         const spu = await Spu.getDetail(pid)
 

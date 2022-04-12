@@ -15,7 +15,7 @@ Component({
         previewImg: String,
         currentSkuCount: Cart.SKU_MIN_COUNT
     },
-// A 提拉米苏 10寸, 无规格
+    // A 提拉米苏 10寸, 无规格
     // B 提拉米苏 草莓味 8寸 10寸
 
     // sku 概念必须要有 规格
@@ -37,8 +37,7 @@ Component({
     methods: {
         processNoSpec(spu) {
             this.setData({
-                noSpec: true,
-                // skuIntact:
+                noSpec: true, // skuIntact:
             })
             this.bindSkuData(spu.sku_list[0])
             this.setStockStatus(spu.sku_list[0].stock, this.data.currentSkuCount)
@@ -80,10 +79,7 @@ Component({
         bindSpuData() {
             const spu = this.properties.spu
             this.setData({
-                previewImg: spu.img,
-                title: spu.title,
-                price: spu.price,
-                discountPrice: spu.discount_price,
+                previewImg: spu.img, title: spu.title, price: spu.price, discountPrice: spu.discount_price,
             })
         },
 
@@ -141,8 +137,7 @@ Component({
                     this.setStockStatus(sku.stock, currentCount)
                 }
             }
-        }
-        ,
+        },
 
         onCellTap(event) {
             const data = event.detail.cell
@@ -154,7 +149,7 @@ Component({
 
             const judger = this.data.judger
             judger.judge(cell, x, y)
-            console.log(cell,x,y)
+            console.log(cell, x, y)
             const skuIntact = judger.isSkuIntact()
             if (skuIntact) {
                 const currentSku = judger.getDeterminateSku()
@@ -164,8 +159,7 @@ Component({
             this.bindTipData()
             this.bindFenceGroupData(judger.fenceGroup)
             this.triggerSpecEvent()
-        }
-        ,
+        },
 
         onBuyOrCart(event) {
             if (Spu.isNoSpec(this.properties.spu)) {
@@ -173,33 +167,27 @@ Component({
             } else {
                 this.shoppingVarious();
             }
-        }
-        ,
+        },
 
         shoppingVarious() {
             const intact = this.data.judger.isSkuIntact();
             if (!intact) {
                 const missKeys = this.data.judger.getMissingKeys()
                 wx.showToast({
-                    icon: "none",
-                    title: `请选择：${missKeys.join('，')}`,
-                    duration: 3000
+                    icon: "none", title: `请选择：${missKeys.join('，')}`, duration: 3000
                 })
                 return
             }
             this._triggerShoppingEvent(this.data.judger.getDeterminateSku())
-        }
-        ,
+        },
 
         shoppingNoSpec() {
             this._triggerShoppingEvent(this.getNoSpecSku())
-        }
-        ,
+        },
 
         getNoSpecSku() {
             return this.properties.spu.sku_list[0]
-        }
-        ,
+        },
 
 
         _triggerShoppingEvent(sku) {
@@ -210,7 +198,5 @@ Component({
                 skuCount: this.data.currentSkuCount,
             })
         }
-
-
     }
 })

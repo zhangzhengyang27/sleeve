@@ -1,4 +1,5 @@
 <view class="container">
+<!--    直接使用class不生效，要使用外部类 l-class  在l-grid上设置row-num="2" 可以设置`1一行显示两个-->
     <l-grid l-class="inner-container">
         <block wx:for="{{grid}}" wx:key="index">
             <l-grid-item data-cid="{{item.category_id}}"

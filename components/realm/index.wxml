@@ -1,5 +1,5 @@
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-
+        <!--商品的弹窗-->
 <scroll-view class="container" scroll-y>
     <view class="inner-container">
         <view class="sku-preview">
@@ -12,8 +12,8 @@
                                 value="{{p.mainPrice(price,discountPrice).price}}"
                                 color="#157658"
                                 value-size="28"
-                                autofix></l-price>
-
+                                autofix>
+                        </l-price>
                         <l-price wx:if="{{p.slashedPrice(price,discountPrice).display}}"
                                  deleted
                                  color="#999999"
@@ -39,7 +39,7 @@
         </view>
 
         <view class="hr"></view>
-
+        <!-- 产生多个s-fence      -->
         <block wx:for="{{fences}}" wx:key="index">
             <s-fence x="{{index}}" bind:celltap="onCellTap" fence="{{item}}"></s-fence>
         </block>

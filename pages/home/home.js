@@ -8,7 +8,6 @@ import {SpuPaging} from "../../models/spu-paging";
 import {CouponCenterType} from "../../core/enum";
 
 Page({
-
     /**
      * 页面的初始数据
      */
@@ -26,18 +25,17 @@ Page({
         this.initAllData()
         this.initBottomSpuList()
     },
-
+    //获取spu的列表数据
     async initBottomSpuList() {
+
         const paging = SpuPaging.getLatestPaging()
         this.data.spuPaging = paging
         const data = await paging.getMoreData()
         if (!data) {
             return
         }
-
+        //lin ui的特色
         wx.lin.renderWaterFlow(data.items)
-
-
     },
 
     async initAllData() {
@@ -85,19 +83,20 @@ Page({
         })
     },
 
-  onGoToTheme(event) {
-    const tName = event.currentTarget.dataset.tname
-    wx.navigateTo({
-      url: `/pages/theme/theme?tname=${tName}`
-    })
-  },
+    onGoToTheme(event) {
+        const tName = event.currentTarget.dataset.tname
+        wx.navigateTo({
+            url: `/pages/theme/theme?tname=${tName}`
+        })
+    },
 
-  onGoToBanner(event) {
-    const keyword = event.currentTarget.dataset.keyword
-    const type = event.currentTarget.dataset.type
-    Banner.gotoTarget(type, keyword)
-  },
+    onGoToBanner(event) {
+        const keyword = event.currentTarget.dataset.keyword
+        const type = event.currentTarget.dataset.type
+        Banner.gotoTarget(type, keyword)
+    },
 
+    //下滑加载更多的
     onReachBottom: async function () {
         const data = await this.data.spuPaging.getMoreData()
         if (!data) {

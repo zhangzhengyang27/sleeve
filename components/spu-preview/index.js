@@ -6,10 +6,9 @@ Component({
     data: {
         tags: Array
     },
-
+    //侦听器
     observers: {
         data: function (data) {
-    
             if (!data) {
                 return
             }
@@ -23,19 +22,20 @@ Component({
             })
         }
     },
-
+// load的事件
+// <image bind:load="onImgLoad" style="width:{{w}}rpx;height:{{h}}rpx;" src="{{data.img}}"></image>
     methods: {
         onImgLoad(event) {
             const {width, height} = event.detail
             this.setData({
-                w:340,
-                h:340*height/width
+                w: 340,
+                h: 340 * height / width
             })
         },
-        onItemTap(event){
+        onItemTap(event) {
             const pid = event.currentTarget.dataset.pid
             wx.navigateTo({
-                url:`/pages/detail/detail?pid=${pid}`
+                url: `/pages/detail/detail?pid=${pid}`
             })
         }
     }

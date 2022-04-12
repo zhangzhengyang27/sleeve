@@ -4,35 +4,35 @@
  */
 
 function mainPrice(price, discountPrice) {
-    if(!discountPrice){
+    if (!discountPrice) {
         return {
-            price:price,
-            display:true
+            price: price,
+            display: true
         }
-    }
-    else{
+    } else {
         return {
-            display:true,
-            price:discountPrice,
+            display: true,
+            price: discountPrice,
         }
     }
 }
 
+//划线的价格
 function slashedPrice(price, discountPrice) {
-    if(discountPrice){
+    if (discountPrice) {
         return {
-            display:true,
-            price:price
+            display: true,
+            price: price
         }
-    }else{
+    } else {
         return {
-            display:false,
-            price:null
+            display: false,
+            price: null
         }
     }
 }
 
 module.exports = {
-    mainPrice:mainPrice,
-    slashedPrice:slashedPrice
+    mainPrice: mainPrice,
+    slashedPrice: slashedPrice
 }

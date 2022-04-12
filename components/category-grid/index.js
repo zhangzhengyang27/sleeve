@@ -7,6 +7,7 @@ Component({
    */
   properties: {
     grid:Array
+    // grid:{type:Array,value:[]}
   },
 
   /**

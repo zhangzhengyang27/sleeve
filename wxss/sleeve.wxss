@@ -1,3 +1,4 @@
+/*点击态的动画*/
 .rect-hover{
     position: relative;
     top: 3rpx;

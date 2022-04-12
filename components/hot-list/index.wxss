@@ -17,11 +17,13 @@
     margin-top: 30rpx;
     display:flex;
     flex-direction:row;
+    /*必须写上width 不然不能实现两边展示*/
     width: 100%;
     justify-content: space-between;
 }
 
 .right-container{
+    /*这里不需要设置height 应为高度已经被撑起来了*/
     display:flex;
     flex-direction:column;
     justify-content: space-between;

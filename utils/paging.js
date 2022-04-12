@@ -26,6 +26,7 @@ class Paging {
         if(!this.moreData){
             return
         }
+        // 判断是否被锁住
         if(!this._getLocker()){
             return
         }
@@ -38,18 +39,20 @@ class Paging {
     async _actualGetData() {
         const req = this._getCurrentReq()
         let paging = await Http.request(req)
+        // 不存在直接返回null
         if(!paging){
             return null
         }
+        // 数据为空
         if(paging.total === 0){
             return {
                 empty:true,
-                items:[],
+                items:[], // 当前接口返回的数据
                 moreData:false,
-                accumulator:[]
+                accumulator:[] // 总的数据
             }
         }
-
+        // 判断this.moreData是TRUE 还是FALSE
         this.moreData = Paging._moreData(paging.total_page, paging.page)
         if(this.moreData){
             this.start += this.count
@@ -86,13 +89,14 @@ class Paging {
     }
 
     _getLocker() {
+        // this.locker 为true的时候，获取不到
         if (this.locker) {
             return false
         }
         this.locker = true
         return true
     }
-
+    // 释放锁
     _releaseLocker() {
         this.locker = false
     }

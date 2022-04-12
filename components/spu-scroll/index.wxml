@@ -1,14 +1,16 @@
 <wxs src="../../miniprogram_npm/lin-ui/filter/string.wxs" module="s"></wxs>
 <wxs src="../../wxs/price.wxs" module="p"></wxs>
-
+<!--l-class 相当于一个占位符 等待外部数据的传入-->
 <view class="container l-class">
     <image bind:tap="onMore" class="title" src="{{theme.title_img}}"></image>
     <scroll-view scroll-x class="scroll-view">
+        <!-- 解决页面高度被撑开的问题       -->
         <view class="inner">
             <block wx:for="{{spuList}}" wx:key="index">
                 <view data-spu-id="{{item.id}}" bind:tap="onTap" class="spu-container">
                     <image class="spu-img" src="{{item.img}}"></image>
-                    <text class="spu-text">{{item.title.length>=8?s.substring(item.title,0,7)+'...':item.title}}</text>
+                    <text class="spu-text">{{item.title.length >= 8 ? s.substring(item.title, 0, 7) + '...' : item.title}}</text>
+                    <!-- l-unit-class  设置单位的外部类-->
                     <l-price
                             l-value-class="price-value"
                             l-unit-class="price-unit"

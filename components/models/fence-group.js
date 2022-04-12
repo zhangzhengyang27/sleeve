@@ -41,7 +41,7 @@ class FenceGroup {
     setCelStatusByXY(x, y, status) {
         this.fences[x].cells[y].status = status
     }
-
+    //初始化调用的是这个方法
     initFences() {
         const matrix = this._createMatrix(this.skuList)
         const fences = []
@@ -76,6 +76,7 @@ class FenceGroup {
         }
     }
 
+    //创造一个二维数组
     _createMatrix(skuList) {
         const m = []
         skuList.forEach(sku => {
@@ -84,10 +85,17 @@ class FenceGroup {
         return new Matrix(m)
     }
 
+    /*
+    金属灰 七龙珠 小号S
+    青芒色 灌篮高手 中号M
+    青芒色 圣斗士 大号L
+    橘黄色 七龙珠 小号S
+     */
     initFences1() {
         const matrix = this._createMatrix(this.skuList)
         const fences = []
         let currentJ = -1;
+        //matrix.each 的each函数会返回(element, i, j)
         matrix.each((element, i, j) => {
             if (currentJ !== j) {
                 // 开启一个新列，需要创建一个新的Fence

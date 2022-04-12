@@ -1,10 +1,12 @@
 <l-loadmore show end-text="- 7七月作品 -" type="{{loadingType}}">
     <view slot="content" class="container">
-        <image wx:if="{{themeA.online}}" class="top-theme" src="{{themeA.entrance_img}}" data-tname="t-1" bind:tap="onGoToTheme"></image>
+        <image wx:if="{{themeA.online}}" class="top-theme" src="{{themeA.entrance_img}}" data-tname="t-1"
+               bind:tap="onGoToTheme"></image>
         <swiper class="swiper" indicator-dots indicator-active-color="#157658" autoplay circular>
             <block wx:for="{{bannerB.items}}" wx:key="index">
                 <swiper-item>
-                    <image data-type="{{item.type}}" data-keyword="{{item.keyword}}" bind:tap="onGoToBanner" class="swiper" src="{{item.img}}"></image>
+                    <image data-type="{{item.type}}" data-keyword="{{item.keyword}}" bind:tap="onGoToBanner"
+                           class="swiper" src="{{item.img}}"></image>
                 </swiper-item>
             </block>
         </swiper>
@@ -12,6 +14,8 @@
 
         <s-category-grid grid="{{grid}}"></s-category-grid>
         <image data-aname="a-2" bind:tap="onGoToCoupons" class="activity" src="{{activityD.entrance_img}}"></image>
+        <!--spu-list  小程序中传值不支持驼峰式-->
+        <!-- s-spu-scroll 设置margin-top不生效 可以被包裹view  外部样式类        -->
         <s-spu-scroll theme="{{themeE}}" spu-list="{{themeESpu}}" wx:if="{{themeE.online}}">
         </s-spu-scroll>
 
@@ -21,9 +25,11 @@
 
 
         <image data-tname="t-4" bind:tap="onGoToTheme" src="{{themeH.entrance_img}}" class="fashion"></image>
-
+        <!--瀑布流的展示-->
         <view class="spu-bottom">
             <image class="title-spu-bottom" src="/imgs/home/title@interest.png"></image>
+            <!-- 小程序官方的抽象节点 -->
+            <!-- 需要使用者也自定义一个组件 -->
             <l-water-flow generic:l-water-flow-item="s-spu-preview"></l-water-flow>
         </view>
     </view>

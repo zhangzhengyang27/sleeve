@@ -53,7 +53,7 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-        "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index",
+    "l-water-flow": "/miniprogram_npm/lin-ui/water-flow/index",
     "l-grid": "/miniprogram_npm/lin-ui/grid/index",
     "l-grid-item": "/miniprogram_npm/lin-ui/grid-item/index",
     "l-counter": "/miniprogram_npm/lin-ui/counter/index",
@@ -80,9 +80,9 @@
     "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
     "l-list": "/miniprogram_npm/lin-ui/list/index",
     "s-empty": "/components/empty/index",
-    "s-coupon-mini": "/components/coupon-mini/index",    
+    "s-coupon-mini": "/components/coupon-mini/index",
     "s-empty-screen": "/components/empty-screen/index",
     "s-coupon": "/components/coupon/index",
-        "s-spu-preview-h": "/components/spu-preview-h/index"
+    "s-spu-preview-h": "/components/spu-preview-h/index"
   }
 }

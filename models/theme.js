@@ -16,7 +16,7 @@ class Theme {
     static locationE = 't-2'
     static locationF = 't-3'
     static locationH = 't-4'
-
+    //实例的属性，不是类的属性，类的是共享一份
     themes = []
 
     static forYou = 't-6'
@@ -33,6 +33,7 @@ class Theme {
         })
     }
 
+    //实例的方法
     getHomeLocationA() {
         return this.themes.find(t => t.name === Theme.locationA)
     }
